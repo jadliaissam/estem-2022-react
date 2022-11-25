@@ -15,7 +15,6 @@ class NewsFeed extends React.Component {
     // fetch('https://jsonplaceholder.typicode.com/posts')
     // .then(res => res.json())
     // .then(data => this.setState({ posts: data, isLoading: false}))
-
     setTimeout(()=> fetch('https://jsonplaceholder.typicode.com/posts')
     .then(res => res.json())
     .then(data => this.setState({ posts: data}))
