@@ -1,17 +1,10 @@
 import React from "react"
-import Header from "./Header";
-import Body from "./Body";
-
-import DemoEvent from "./DemoEvent";
-import Form from "./Form";
-import Form2 from "./form2";
-import Liste from "./ListeItem";
-import FormUsers from "./FormUsers";
+import NewsFeed from "./NewsFeed";
+import NewsItem from "./NewsItem";
 function App() {
   return (
     <div className="App">
-    <FormUsers/>
-
+        <NewsFeed />
     </div>
   );
 }
