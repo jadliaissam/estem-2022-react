@@ -6,18 +6,24 @@ export default class Dashboard extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            isAdmin: false
+            isAdmin: localStorage.getItem('isAdmin') === 'true'
         }
     }
 
     changeAdmin = (a) => {
         this.setState({ isAdmin: a})
+        localStorage.setItem('isAdmin', true)
+    }
+
+    logout = ()=> {
+        localStorage.removeItem('isAdmin')
+        this.setState({isAdmin: false})
     }
 
     render(){
-        if(this.state.isAdmin)
-            return <NewsFeed/>
-        else
-            return <Login fn={this.changeAdmin} />
+       return <div>
+        <button onClick={this.logout }> Logout </button>
+            {this.state.isAdmin ? <NewsFeed/> : <Login fn={this.changeAdmin} />}
+        </div> 
     }
 }
