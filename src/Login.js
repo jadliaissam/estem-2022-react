@@ -1,22 +1,19 @@
 import React from 'react'
-import NewsFeed from './NewsFeed'
 
 class Login extends React.Component {
-
     constructor(props){
         super(props)
-        this.state = {username: "", password: "", isAdmin:false}
+        this.state = {username: "", password: ""}
     }
 
     validate = ()=> {
         if(this.state.username === "admin" && this.state.password === "admin"){
-            this.setState({isAdmin: true})
+            this.props.fn(true)
+        } else {
+            this.props.fn(false)
         }
     }
     render(){
-        if(this.state.isAdmin){
-            return <NewsFeed />
-        }
         return <div>
             <p>Username</p>
             <input type={"text"} onChange={(e)=> this.setState({username: e.target.value})} value={this.state.username} />

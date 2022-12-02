@@ -1,11 +1,10 @@
 import React from "react"
-import Login from "./Login";
-import NewsFeed from "./NewsFeed";
-import NewsItem from "./NewsItem";
+import Dashboard from "./Dashboard";
+
 function App() {
   return (
     <div className="App">
-        <Login />
+        <Dashboard />
     </div>
   );
 }
