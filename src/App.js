@@ -1,17 +1,21 @@
-import React from "react"
-import DarkComp from "./DarkComp";
-import DarkComp2 from "./DarkComp2";
-import { Provider} from 'react-redux'
-import { createStore } from "redux";
-import rootReducer from "./reducers";
-import CounterHook from "./CounterHook";
-import NewsListHook from "./NewsListHook";
+import React, { useState } from "react";
+import ContextHookA from "./ContextHookA";
+import ContextHookB from "./ContextHookB";
 
-const store = createStore(rootReducer)
+export const LangugaeContext = React.createContext('fr') 
 
 function App() {
+  const [lang, setLang] =  useState('fr')
   return (
-    <NewsListHook  />
+    <LangugaeContext.Provider value={{lang, setLang}}>
+    <div>
+      <button onClick={()=>setLang('fr')}>FR</button>
+      <button onClick={()=> setLang('en')}>EN</button>
+      <button onClick={()=> setLang('es')}>ES</button>
+      <ContextHookA />
+      <ContextHookB />
+    </div>
+    </LangugaeContext.Provider>
   );
 }
 
